@@ -1,19 +1,37 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
     <router-view/>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      windowWidth: window.innerWidth
+    }
+  },
+  mounted() {
+      this.$nextTick(() => {
+          window.addEventListener('resize', this.onResize);
+      })
+  },  
+  beforeDestroy() { 
+      window.removeEventListener('resize', this.onResize); 
+  },
+  methods: {
+    onResize() {
+        this.windowWidth = window.innerWidth
+        this.$store.commit('setWindowWidth', this.windowWidth)
+        console.log(this.windowWidth,"ineer Width")
+    },
+  },
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
