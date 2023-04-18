@@ -54,7 +54,7 @@ export default {
                 { value: 'd', text: 'This one is disabled', disabled: true }
             ],
             fields: [
-                { key: 'npk', label: 'NPX' },
+                { key: 'npk', label: 'NPK' },
                 { key: 'transaction_date', label: 'Tanggal Transaksi' },
                 { key: 'kode', label: 'Kode' },
                 { key: 'location', label: 'Location' },

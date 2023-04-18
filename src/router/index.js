@@ -4,15 +4,21 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import InputTransaksi from '../components/InputTransaksi.vue'
 import ListTransaksi from '../components/ListTransaksi.vue'
+import Dashboard from '../components/Dashboard.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'dashboard',
+    name: 'home',
     component: HomeView,
     children:[
+      {
+        path: 'dashboard',
+        name: 'dashboard',
+        component: Dashboard
+      },
       {
         path: 'input-transaksi',
         name: 'inputTransaksi',
