@@ -1,14 +1,34 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import LoginView from '../views/LoginView.vue'
+import InputTransaksi from '../components/InputTransaksi.vue'
+import ListTransaksi from '../components/ListTransaksi.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'dashboard',
+    component: HomeView,
+    children:[
+      {
+        path: 'input-transaksi',
+        name: 'inputTransaksi',
+        component: InputTransaksi
+      },
+      {
+        path: 'list-transaksi',
+        name: 'listTransaksi',
+        component: ListTransaksi
+      },
+    ]
+  },
+  {
+    path: '/signin',
+    name: 'signIn',
+    component: LoginView
   },
   {
     path: '/about',
